@@ -39,17 +39,6 @@ Then open <http://localhost:5080> in a browser. One screen, no menu numbers:
 The browser holds no business rules. It posts an action, and the server replies with the
 whole till state, which the page redraws itself from.
 
-### Product pictures
-
-Every product card shows a picture. To use a real photo, drop a file into
-`PosSystem/wwwroot/images/` **named after the SKU** — `TB-1005.jpg` becomes the picture
-for Chocolate Fudge Cake. `.jpg` `.jpeg` `.png` `.webp` `.gif` `.avif` `.svg` all work, the
-case of the name does not matter, and no restart is needed — drop it in and refresh.
-
-Anything without a photo falls back to a built-in drawing for its category (bread, cake,
-patty, cookie, bottle), so the grid is readable before a single photo has been added. The
-picture is matched by SKU on the web side only, so `Product` keeps the five fields the
-brief asks for and `catalog.json` does not change shape.
 
 ### The JSON API behind the page
 
