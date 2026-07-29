@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tehzeeb Bakers &mdash; POS</title>
+  <link rel="icon" href="/images/Tehzeeb-Logo-PNG1.webp">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <img class="brand-logo" src="/images/Tehzeeb-Logo-PNG1.webp" alt="Tehzeeb Bakers">
+    <span class="brand-text">Point of Sale</span>
+  </div>
+
+  <div class="topbar-actions">
+    <button type="button" class="ghost" id="btn-tax">Tax brackets</button>
+    <button type="button" class="ghost" id="btn-print">
+      Print queue <span class="badge" id="queue-badge">0</span>
+    </button>
+    <button type="button" class="ghost" id="btn-save">Save catalog</button>
+  </div>
+</header>
+
+<main class="layout">
+
+  <!-- ---- FR-1: the catalog ------------------------------------------------ -->
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Catalog <span class="muted" id="catalog-count"></span></h2>
+      <button type="button" class="ghost" id="btn-new-product">+ New product</button>
+    </div>
+
+    <div class="filters">
+      <input type="search" id="search" placeholder="Search by name or SKU&hellip;" autocomplete="off">
+      <div class="chips" id="category-chips"></div>
+    </div>
+
+    <div class="grid" id="product-grid"></div>
+  </section>
+
+  <!-- ---- FR-2 to FR-6: the cart ------------------------------------------- -->
+  <aside class="panel cart">
+
+    <!-- shown when no sale is open -->
+    <div class="cart-empty" id="no-sale">
+      <div class="cart-empty-art">&#128717;</div>
+      <h2>No sale open</h2>
+      <p class="muted">Open a cart to start ringing items up.</p>
+      <form id="start-sale-form" autocomplete="off">
+        <input type="text" id="customer-name" placeholder="Customer name (optional)">
+        <button type="submit" class="primary block">Start new sale</button>
+      </form>
+    </div>
+
+    <!-- shown when a sale is open -->
+    <div class="cart-open" id="sale" hidden>
+      <div class="panel-head">
+        <h2 id="order-number">SO-0000</h2>
+        <button type="button" class="link danger" id="btn-cancel-sale">Discard</button>
+      </div>
+      <p class="muted cart-sub">
+        <span id="order-customer">Walk-in Customer</span> &middot; opened <span id="order-opened">00:00</span>
+      </p>
+
+      <div class="lines" id="cart-lines"></div>
+
+      <div class="totals">
+        <div class="row"><span>Subtotal</span><span id="t-subtotal">Rs. 0.00</span></div>
+        <div class="row"><span>Sales tax</span><span id="t-tax">Rs. 0.00</span></div>
+        <div class="row grand"><span>Grand total</span><span id="t-total">Rs. 0.00</span></div>
+      </div>
+
+      <div class="cart-actions">
+        <button type="button" class="ghost block" id="btn-undo">&#8630; Undo last add</button>
+        <label class="field">
+          <span>Payment method</span>
+          <select id="payment-method"></select>
+        </label>
+        <button type="button" class="primary block big" id="btn-checkout">Checkout</button>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<!-- ---- dialogs ------------------------------------------------------------ -->
+
+<dialog id="dlg-product">
+  <form method="dialog" id="new-product-form" autocomplete="off">
+    <h2>New product</h2>
+    <label class="field"><span>SKU</span><input type="text" id="p-sku" required></label>
+    <label class="field"><span>Name</span><input type="text" id="p-name" required></label>
+    <label class="field"><span>Unit price (Rs.)</span><input type="number" id="p-price" min="0" step="0.01" value="0" required></label>
+    <label class="field"><span>Category</span><select id="p-category"></select></label>
+    <label class="field"><span>Opening stock</span><input type="number" id="p-stock" min="0" step="1" value="0" required></label>
+    <div class="dialog-actions">
+      <button type="button" class="ghost" data-close>Cancel</button>
+      <button type="submit" class="primary">Add to catalog</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="dlg-receipt">
+  <h2>Receipt</h2>
+  <pre id="receipt-text"></pre>
+  <div class="dialog-actions">
+    <button type="button" class="ghost" data-close>Close</button>
+    <button type="button" class="primary" id="btn-print-receipt">Print</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-tax">
+  <h2>Sales tax brackets</h2>
+  <table class="tax-table"><tbody id="tax-rows"></tbody></table>
+  <p class="muted small">Tax is charged per category, not as one flat rate.</p>
+  <div class="dialog-actions">
+    <button type="button" class="primary" data-close>Close</button>
+  </div>
+</dialog>
+
+<div class="toast-stack" id="toasts"></div>
+
+<div class="veil" id="veil" hidden><div class="spinner"></div><p id="veil-text">Working&hellip;</p></div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+================================================
+                 TEHZEEB BAKERS
+                 Point of Sale
+               All amounts in PKR
+================================================
+Order    : SO-1001
+Customer : waqar
+Date     : 28-Jul-2026 22:19
+Payment  : Cash  [CASH]
+------------------------------------------------
+ITEM                     QTY     UNIT     AMOUNT
+------------------------------------------------
+Cold Coffee                4   350.00   1,400.00
+Chicken Patties            4   150.00     600.00
+Black Forest Cake 2lb      5 2,600.00  13,000.00
+Dry Cake Slice             5    90.00     450.00
+Fresh Cream Roll           2   120.00     240.00
+Mineral Water 1.5L         3   100.00     300.00
+------------------------------------------------
+Subtotal                           Rs. 15,990.00
+Sales tax                             Rs. 952.00
+------------------------------------------------
+GRAND TOTAL                        Rs. 16,942.00
+================================================
+              Items: 23   Lines: 6
+       Thank you for shopping at Tehzeeb!
+================================================

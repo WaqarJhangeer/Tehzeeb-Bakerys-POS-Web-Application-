@@ -1,0 +1,60 @@
+{
+  "OrderNumber": "SO-1001",
+  "CustomerName": "waqar",
+  "CreatedAt": "2026-07-28T22:19:54.8635113+05:00",
+  "PaymentMethod": "Cash",
+  "AuthCode": "CASH",
+  "Lines": [
+    {
+      "Sku": "TB-1011",
+      "Name": "Cold Coffee",
+      "Category": "Beverages",
+      "Quantity": 4,
+      "UnitPrice": 350.0,
+      "LineTotal": 1400.0
+    },
+    {
+      "Sku": "TB-1001",
+      "Name": "Chicken Patties",
+      "Category": "Savouries",
+      "Quantity": 4,
+      "UnitPrice": 150.0,
+      "LineTotal": 600.0
+    },
+    {
+      "Sku": "TB-1006",
+      "Name": "Black Forest Cake 2lb",
+      "Category": "Cakes",
+      "Quantity": 5,
+      "UnitPrice": 2600.0,
+      "LineTotal": 13000.0
+    },
+    {
+      "Sku": "TB-1007",
+      "Name": "Dry Cake Slice",
+      "Category": "Bakery",
+      "Quantity": 5,
+      "UnitPrice": 90.0,
+      "LineTotal": 450.0
+    },
+    {
+      "Sku": "TB-1010",
+      "Name": "Fresh Cream Roll",
+      "Category": "Bakery",
+      "Quantity": 2,
+      "UnitPrice": 120.0,
+      "LineTotal": 240.0
+    },
+    {
+      "Sku": "TB-1009",
+      "Name": "Mineral Water 1.5L",
+      "Category": "Beverages",
+      "Quantity": 3,
+      "UnitPrice": 100.0,
+      "LineTotal": 300.0
+    }
+  ],
+  "Subtotal": 15990.0,
+  "SalesTax": 952.00,
+  "GrandTotal": 16942.00
+}
