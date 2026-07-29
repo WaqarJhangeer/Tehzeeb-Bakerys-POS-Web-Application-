@@ -126,3 +126,4 @@ mid-sale cannot rewrite a transaction that is already in progress.
 
 ---
 
+And lastly you can downlode the receipt and save on your computer.
